@@ -8,6 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.6.3",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@fontsource/press-start-2p": "^4.4.2",
+    "@notionhq/client": "^0.1.8",
+    "framer-motion": "^4",
     "next": "10.2.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
