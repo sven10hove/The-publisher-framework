@@ -32,11 +32,6 @@ const Navigation = () => {
   );
 };
 
-const links = [
-  {
-    url: "/about",
-    title: "About",
-  },
-];
+const links = [];
 
 export default Navigation;

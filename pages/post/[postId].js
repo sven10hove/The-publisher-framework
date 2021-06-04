@@ -1,16 +1,41 @@
+import Image from "next/image";
 import { getOverview, getPost } from "../../lib/notion";
-import { Container, Heading } from "@chakra-ui/react";
+import { Box, Container, Heading } from "@chakra-ui/react";
+
 import MainLayout from "../../layouts/MainLayout";
 import Blocks from "../../components/blocks";
+import PostTags from "../../components/posts/PostTags";
 
 export default function Post({ post }) {
+  const { pageInfo, blocks } = post;
+  const { entry, image, type } = pageInfo.properties;
+
   return (
     <MainLayout>
       <Container maxW="container.md">
-        <Heading as="h1" mb={8}>
-          Blog posts
+        <Box
+          position="relative"
+          height="350px"
+          mb={12}
+          borderRadius="lg"
+          overflow="hidden"
+        >
+          <Image
+            src={image.url}
+            alt={entry.title[0].text.content}
+            layout="fill"
+          />
+        </Box>
+
+        <Heading as="h1" mb={2}>
+          {entry.title[0].text.content}
         </Heading>
-        <Blocks blocks={post} />
+
+        <Box mb={6}>
+          <PostTags tags={type.multi_select} size="sm" />
+        </Box>
+
+        <Blocks blocks={blocks} />
       </Container>
     </MainLayout>
   );
@@ -29,5 +54,5 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const post = await getPost(params.postId);
 
-  return { props: { post } };
+  return { props: { post }, revalidate: 10 };
 }

@@ -9,23 +9,13 @@ import {
   Link,
   Stack,
 } from "@chakra-ui/react";
+
 import TextRenderer from "../blocks/TextRenderer";
+import PostTags from "./PostTags";
 
 const PostsList = ({ posts }) => {
   const renderPosts = posts.map((r) => {
     const { entry, summary, image, type } = r.properties;
-
-    const renderTags = type.multi_select.map((t) => (
-      <Tag
-        size="md"
-        key={t.id}
-        borderRadius="full"
-        variant="solid"
-        colorScheme="gray"
-      >
-        <TagLabel>{t.name}</TagLabel>
-      </Tag>
-    ));
 
     return (
       <NextLink key={r.id} href={`/post/${r.id}`} passHref>
@@ -47,13 +37,14 @@ const PostsList = ({ posts }) => {
               layout="fill"
             />
           </Box>
+
           <Heading as="h2" mb={4}>
             {entry.title[0].text.content}
           </Heading>
 
-          <HStack spacing={2} mb={4}>
-            {renderTags}
-          </HStack>
+          <Box mb={4}>
+            <PostTags tags={type.multi_select} size="sm" />
+          </Box>
 
           <TextRenderer text={summary.rich_text} />
         </Link>

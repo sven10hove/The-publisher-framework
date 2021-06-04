@@ -38,7 +38,7 @@ const TextRenderer = ({ text }) => {
 
     if (text.link) {
       return (
-        <Link href={text.link.url} {...textProps}>
+        <Link href={text.link.url} target="_blank" {...textProps}>
           {text.content}
         </Link>
       );
