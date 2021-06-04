@@ -12,7 +12,7 @@ export default function Post({ post }) {
 
   return (
     <MainLayout>
-      <Container maxW="container.md">
+      <Container maxW="container.sm">
         <Box
           position="relative"
           height="350px"
