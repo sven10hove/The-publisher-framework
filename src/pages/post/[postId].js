@@ -16,7 +16,7 @@ export default function Post({ post }) {
         <Box
           position="relative"
           height={[200, 300, 350]}
-          mb={[4, 8, 12]}
+          mb={[4, 8]}
           borderRadius="lg"
           overflow="hidden"
         >
