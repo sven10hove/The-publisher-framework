@@ -1,4 +1,4 @@
-import { Client } from "@notionhq/client";
+import { Client } from '@notionhq/client';
 
 const notion = new Client({
   auth: process.env.NOTION_SECRET,
@@ -12,9 +12,9 @@ export const getOverview = async () => {
     filter: {
       or: [
         {
-          property: "status",
+          property: 'status',
           select: {
-            equals: "published",
+            equals: 'published',
           },
         },
       ],

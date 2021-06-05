@@ -1,4 +1,4 @@
-import { HStack, Tag, TagLabel } from "@chakra-ui/react";
+import { HStack, Tag, TagLabel } from '@chakra-ui/react';
 
 const PostTags = ({ tags, size }) => {
   const renderTags = tags.map((t) => (

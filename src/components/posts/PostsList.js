@@ -1,51 +1,23 @@
-import NextLink from "next/link";
-import Image from "next/image";
-import {
-  Box,
-  Heading,
-  Link,
-  Stack,
-} from "@chakra-ui/react";
+import NextLink from 'next/link';
+import Image from 'next/image';
+import { Box, Heading, Link, Stack } from '@chakra-ui/react';
 
-import TextRenderer from "@/components/blocks/TextRenderer";
-import PostTags from "@/components/posts/PostTags";
+import TextRenderer from '@/components/blocks/TextRenderer';
+import PostTags from '@/components/posts/PostTags';
 
 const PostsList = ({ posts }) => {
   const renderPosts = posts.map((r) => {
     const { entry, summary, image, type } = r.properties;
 
     return (
-      <NextLink key={r.id} href={`/post/${r.id}`} passHref>
-        <Link
-          pb={8}
-          _hover={{ textDecoration: "none" }}
-          _notLast={{ borderBottom: "1px", borderBottomColor: "gray.900" }}
-        >
-          <Box
-            position="relative"
-            height="350px"
-            mb={8}
-            borderRadius="lg"
-            overflow="hidden"
-          >
-            <Image
-              src={image.url}
-              alt={entry.title[0].text.content}
-              layout="fill"
-            />
-          </Box>
-
-          <Heading as="h2" mb={4}>
-            {entry.title[0].text.content}
-          </Heading>
-
-          <Box mb={4}>
-            <PostTags tags={type.multi_select} size="sm" />
-          </Box>
-
-          <TextRenderer text={summary.rich_text} />
-        </Link>
-      </NextLink>
+      <PostItem
+        key={r.id}
+        id={r.id}
+        imageUrl={image.url}
+        title={entry.title[0].text.content}
+        tags={type.multi_select}
+        summary={summary.rich_text}
+      />
     );
   });
 
@@ -53,3 +25,33 @@ const PostsList = ({ posts }) => {
 };
 
 export default PostsList;
+
+const PostItem = ({ id, imageUrl, title, tags, summary }) => (
+  <NextLink href={`/post/${id}`} passHref>
+    <Link
+      pb={8}
+      _hover={{ textDecoration: 'none' }}
+      _notLast={{ borderBottom: '1px', borderBottomColor: 'gray.300' }}
+    >
+      <Box
+        position="relative"
+        height={[200, 300, 350]}
+        mb={[4, 8]}
+        borderRadius="lg"
+        overflow="hidden"
+      >
+        <Image src={imageUrl} alt={title} layout="fill" />
+      </Box>
+
+      <Heading as="h2" mb={[2, 4]}>
+        {title}
+      </Heading>
+
+      <Box mb={4}>
+        <PostTags tags={tags} size="sm" />
+      </Box>
+
+      <TextRenderer text={summary} />
+    </Link>
+  </NextLink>
+);

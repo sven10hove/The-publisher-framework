@@ -1,8 +1,8 @@
-import { getOverview } from "@/lib/notion";
-import { Container } from "@chakra-ui/react";
+import { getOverview } from '@/lib/notion';
+import { Container } from '@chakra-ui/react';
 
-import MainLayout from "@/layouts/MainLayout";
-import PostsList from "@/components/posts/PostsList";
+import MainLayout from '@/layouts/MainLayout';
+import PostsList from '@/components/posts/PostsList';
 
 export default function Home({ posts }) {
   return (

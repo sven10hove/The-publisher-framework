@@ -1,11 +1,11 @@
-import { Box, Container, Flex, Link, List, ListItem } from "@chakra-ui/react";
-import NextLink from "next/link";
+import { Box, Container, Flex, Link, List, ListItem } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 const Navigation = () => {
   const renderLinks = links.map((l) => (
     <ListItem key={l.title} fontSize="md" fontFamily="pressStart">
       <NextLink href={l.url} passHref>
-        <Link _hover={{ underline: "none", color: "purple.600" }}>
+        <Link _hover={{ underline: 'none', color: 'purple.600' }}>
           {l.title}
         </Link>
       </NextLink>
@@ -20,7 +20,7 @@ const Navigation = () => {
             <Link
               fontSize="md"
               fontFamily="pressStart"
-              _hover={{ underline: "none", color: "purple.600" }}
+              _hover={{ underline: 'none', color: 'purple.600' }}
             >
               TWAN.DEV
             </Link>

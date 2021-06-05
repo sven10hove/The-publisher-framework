@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { getOverview, getPost } from "@/lib/notion";
-import { Box, Container, Heading } from "@chakra-ui/react";
+import Image from 'next/image';
+import { getOverview, getPost } from '@/lib/notion';
+import { Box, Container, Heading } from '@chakra-ui/react';
 
-import MainLayout from "@/layouts/MainLayout";
-import Blocks from "@/components/blocks";
-import PostTags from "@/components/posts/PostTags";
+import MainLayout from '@/layouts/MainLayout';
+import Blocks from '@/components/blocks';
+import PostTags from '@/components/posts/PostTags';
 
 export default function Post({ post }) {
   const { pageInfo, blocks } = post;
@@ -15,8 +15,8 @@ export default function Post({ post }) {
       <Container maxW="container.sm">
         <Box
           position="relative"
-          height="350px"
-          mb={12}
+          height={[200, 300, 350]}
+          mb={[4, 8, 12]}
           borderRadius="lg"
           overflow="hidden"
         >

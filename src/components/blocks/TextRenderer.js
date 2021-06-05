@@ -1,4 +1,4 @@
-import { Text, Link } from "@chakra-ui/react";
+import { Text, Link } from '@chakra-ui/react';
 
 const TextRenderer = ({ text }) => {
   if (!text) {
@@ -17,28 +17,33 @@ const TextRenderer = ({ text }) => {
       }
 
       if (strikethrough && underline) {
-        return "strikethrough underline";
+        return 'strikethrough underline';
       }
 
       if (strikethrough) {
-        return "striketrough";
+        return 'striketrough';
       }
 
-      return "underline";
+      return 'underline';
     };
 
     const textProps = {
       key: index,
       fontWeight: bold ? 600 : 400,
-      fontFamily: code ? "monospace" : "",
-      fontStyle: italic ? "italic" : "unset",
+      fontFamily: code ? 'monospace' : '',
+      fontStyle: italic ? 'italic' : 'unset',
       textDecoration: resolveTextDecoration(),
-      color: color === "default" ? "gray.900" : color,
+      color: color === 'default' ? 'gray.900' : color,
     };
 
     if (text.link) {
       return (
-        <Link href={text.link.url} target="_blank" {...textProps}>
+        <Link
+          href={text.link.url}
+          target="_blank"
+          {...textProps}
+          color="blue.400"
+        >
           {text.content}
         </Link>
       );
