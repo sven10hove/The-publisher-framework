@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { getOverview, getPost } from "../../lib/notion";
+import { getOverview, getPost } from "@/lib/notion";
 import { Box, Container, Heading } from "@chakra-ui/react";
 
-import MainLayout from "../../layouts/MainLayout";
-import Blocks from "../../components/blocks";
-import PostTags from "../../components/posts/PostTags";
+import MainLayout from "@/layouts/MainLayout";
+import Blocks from "@/components/blocks";
+import PostTags from "@/components/posts/PostTags";
 
 export default function Post({ post }) {
   const { pageInfo, blocks } = post;

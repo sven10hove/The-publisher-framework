@@ -1,4 +1,4 @@
-import TextRenderer from "./TextRenderer";
+import TextRenderer from "@/components/blocks/TextRenderer";
 import { Heading, Text } from "@chakra-ui/react";
 
 const Blocks = ({ blocks }) => {

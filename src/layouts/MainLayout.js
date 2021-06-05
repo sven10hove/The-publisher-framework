@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Navigation from "../components/navigation";
+import Navigation from "@/components/navigation";
 
 const MainLayout = ({ children }) => {
   return (

@@ -4,7 +4,7 @@ import {useEffect} from 'react';
 import {useRouter} from 'next/router';
 import * as Fathom from 'fathom-client';
 import { ChakraProvider } from "@chakra-ui/react";
-import theme from "../theme";
+import theme from "@/theme";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
