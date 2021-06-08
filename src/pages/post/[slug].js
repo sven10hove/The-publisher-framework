@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getOverview, getPost } from '@/lib/notion';
+import { getOverview, getPostBySlug } from '@/lib/notion';
 import { Box, Container, Heading } from '@chakra-ui/react';
 
 import MainLayout from '@/layouts/MainLayout';
@@ -45,14 +45,14 @@ export async function getStaticPaths() {
   const posts = await getOverview();
 
   const paths = posts.map((post) => ({
-    params: { postId: post.id },
+    params: { slug: post.properties.slug.rich_text[0].plain_text },
   }));
 
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  const post = await getPost(params.postId);
+  const post = await getPostBySlug(params.slug);
 
   return { props: { post }, revalidate: 10 };
 }

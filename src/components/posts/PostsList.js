@@ -7,12 +7,12 @@ import PostTags from '@/components/posts/PostTags';
 
 const PostsList = ({ posts }) => {
   const renderPosts = posts.map((r) => {
-    const { entry, summary, image, type } = r.properties;
+    const { slug, entry, summary, image, type } = r.properties;
 
     return (
       <PostItem
         key={r.id}
-        id={r.id}
+        slug={slug.rich_text[0]}
         imageUrl={image.url}
         title={entry.title[0].text.content}
         tags={type.multi_select}
@@ -26,8 +26,8 @@ const PostsList = ({ posts }) => {
 
 export default PostsList;
 
-const PostItem = ({ id, imageUrl, title, tags, summary }) => (
-  <NextLink href={`/post/${id}`} passHref>
+const PostItem = ({ imageUrl, slug, title, tags, summary }) => (
+  <NextLink href={`/post/${slug.plain_text}`} passHref>
     <Link
       pb={8}
       _hover={{ textDecoration: 'none' }}

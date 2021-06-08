@@ -24,9 +24,32 @@ export const getOverview = async () => {
   return response.results;
 };
 
-export const getPost = async (postId) => {
-  const page = await notion.pages.retrieve({ page_id: postId });
-  const blocks = await notion.blocks.children.list({ block_id: postId });
+export const getPostBySlug = async (slug) => {
+  const post = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      or: [
+        {
+          property: 'slug',
+          text: {
+            equals: slug,
+          },
+        },
+      ],
+    },
+  });
+
+  const pageId = post.results[0].id;
+
+  const page = await notion.pages.retrieve({ page_id: pageId });
+  const blocks = await notion.blocks.children.list({ block_id: pageId });
 
   return { pageInfo: page, blocks: blocks.results };
+};
+
+export const getPostById = async (postId) => {
+  const post = await notion.pages.retrieve({ page_id: postId });
+  const blocks = await notion.blocks.children.list({ block_id: postId });
+
+  return { pageInfo: post, blocks: blocks.results };
 };
