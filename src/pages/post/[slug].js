@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image from 'next/image';
 import { getOverview, getPostBySlug } from '@/lib/notion';
 import { Box, Container, Heading } from '@chakra-ui/react';
@@ -8,10 +9,29 @@ import PostTags from '@/components/posts/PostTags';
 
 export default function Post({ post }) {
   const { pageInfo, blocks } = post;
-  const { entry, image, type } = pageInfo.properties;
+  const { entry, slug, summary, image, type, social_image } =
+    pageInfo.properties;
 
   return (
     <MainLayout>
+      <Head>
+        <title>twan.dev - {entry.title[0].text.content}</title>
+        <meta name="description" content={summary.rich_text[0].text.content} />
+        <meta property="og:title" content="twan.dev" />
+        <meta
+          property="og:description"
+          content={summary.rich_text[0].text.content}
+        />
+        <meta
+          property="og:url"
+          content={`https://twan.dev/${slug.rich_text[0].plain_text}`}
+        />
+        <meta
+          property="og:image"
+          content={social_image ? social_image.url : image.url}
+        />
+      </Head>
+
       <Container maxW="container.sm">
         <Box
           position="relative"
