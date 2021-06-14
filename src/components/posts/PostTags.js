@@ -8,6 +8,8 @@ const PostTags = ({ tags, size }) => {
       borderRadius="full"
       variant="solid"
       colorScheme="gray"
+      fontFamily="heading"
+      fontWeight="600"
     >
       <TagLabel>{t.name}</TagLabel>
     </Tag>

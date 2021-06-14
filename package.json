@@ -8,10 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.0.13",
     "@chakra-ui/react": "^1.6.3",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@fontsource/press-start-2p": "^4.4.2",
+    "@fontsource/montserrat": "^4.4.5",
+    "@fontsource/noto-serif": "^4.4.5",
     "@notionhq/client": "^0.1.8",
     "fathom-client": "^3.0.0",
     "framer-motion": "^4",

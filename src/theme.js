@@ -1,16 +1,25 @@
 import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: true,
+  },
+  colors: {
+    primaryDark: '#0C0C0F',
+    primaryLight: '#DADADA',
+  },
   fonts: {
-    pressStart: '"Press Start 2P", cursive',
+    heading: '"Montserrat", sans-serif',
+    body: '"Noto Serif", serif',
   },
   styles: {
-    global: {
+    global: (props) => ({
       'html, body': {
-        backgroundColor: 'gray.50',
-        color: 'gray.900',
+        backgroundColor: props.colorMode === 'dark' ? 'primaryDark' : 'gray.50',
+        color: props.colorMode === 'dark' ? 'primaryLight' : 'primaryDark',
       },
-    },
+    }),
   },
 });
 

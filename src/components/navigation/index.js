@@ -1,9 +1,21 @@
-import { Box, Container, Flex, Link, List, ListItem } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import {
+  Box,
+  Container,
+  Flex,
+  Link,
+  List,
+  ListItem,
+  useColorMode,
+  IconButton,
+} from '@chakra-ui/react';
+import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 
 const Navigation = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   const renderLinks = links.map((l) => (
-    <ListItem key={l.title} fontSize="md" fontFamily="pressStart">
+    <ListItem key={l.title} fontSize="md" fontFamily="heading">
       <NextLink href={l.url} passHref>
         <Link _hover={{ underline: 'none', color: 'purple.600' }}>
           {l.title}
@@ -18,14 +30,25 @@ const Navigation = () => {
         <Flex justify="space-between" align="center">
           <NextLink href="/" passHref>
             <Link
-              fontSize="md"
-              fontFamily="pressStart"
+              fontSize="3xl"
+              fontFamily="heading"
+              fontWeight={600}
               _hover={{ underline: 'none', color: 'purple.600' }}
             >
-              TWAN.DEV
+              twan.dev
             </Link>
           </NextLink>
-          <List>{renderLinks}</List>
+          <List>
+            {renderLinks}
+            <IconButton
+              variant="ghost"
+              colorScheme="gray"
+              aria-label="change color mode"
+              size="lg"
+              icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+              onClick={toggleColorMode}
+            />
+          </List>
         </Flex>
       </Container>
     </Box>

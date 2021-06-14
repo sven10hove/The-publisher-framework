@@ -1,4 +1,5 @@
-import '@fontsource/press-start-2p';
+import '@fontsource/montserrat';
+import '@fontsource/noto-serif';
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
