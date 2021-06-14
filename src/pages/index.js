@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { getOverview } from '@/lib/notion';
-import { Container } from '@chakra-ui/react';
+import { Container, Heading } from '@chakra-ui/react';
 
 import MainLayout from '@/layouts/MainLayout';
 import PostsList from '@/components/posts/PostsList';
@@ -22,7 +22,10 @@ export default function Home({ posts }) {
         <meta property="og:url" content="https://twan.dev" />
       </Head>
 
-      <Container maxW="container.sm">
+      <Container maxW="container.lg" mb={16}>
+        <Heading as="h2" fontSize="xl" px={[4, 8]} mb={6}>
+          my thoughts
+        </Heading>
         <PostsList posts={posts} />
       </Container>
     </MainLayout>

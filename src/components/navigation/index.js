@@ -17,23 +17,21 @@ const Navigation = () => {
   const renderLinks = links.map((l) => (
     <ListItem key={l.title} fontSize="md" fontFamily="heading">
       <NextLink href={l.url} passHref>
-        <Link _hover={{ underline: 'none', color: 'purple.600' }}>
-          {l.title}
-        </Link>
+        <Link _hover={{ underline: 'none' }}>{l.title}</Link>
       </NextLink>
     </ListItem>
   ));
 
   return (
-    <Box as="nav" py={8}>
-      <Container maxW="container.md">
-        <Flex justify="space-between" align="center">
+    <Box as="nav" py={[6, 8]} mb={8}>
+      <Container maxW="container.lg">
+        <Flex justify="space-between" align="center" px={[null, null, 8]}>
           <NextLink href="/" passHref>
             <Link
-              fontSize="3xl"
+              fontSize={['xl', '3xl']}
               fontFamily="heading"
               fontWeight={600}
-              _hover={{ underline: 'none', color: 'purple.600' }}
+              _hover={{ underline: 'none' }}
             >
               twan.dev
             </Link>

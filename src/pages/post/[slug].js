@@ -5,7 +5,6 @@ import { Box, Container, Heading } from '@chakra-ui/react';
 
 import MainLayout from '@/layouts/MainLayout';
 import Blocks from '@/components/blocks';
-import PostTags from '@/components/posts/PostTags';
 
 export default function Post({ post }) {
   const { pageInfo, blocks } = post;
@@ -32,10 +31,19 @@ export default function Post({ post }) {
         />
       </Head>
 
-      <Container maxW="container.sm">
+      <Container maxW="container.lg" mt={[8, 16]} mb={[8, 16]}>
+        <Heading
+          as="h1"
+          mb={[4, 8, 16]}
+          fontSize={['4xl', '5xl']}
+          px={[null, null, 16]}
+        >
+          {entry.title[0].text.content}
+        </Heading>
+
         <Box
           position="relative"
-          height={[200, 300, 350]}
+          height={[200, 300, 500]}
           mb={[4, 8]}
           borderRadius="lg"
           overflow="hidden"
@@ -46,15 +54,9 @@ export default function Post({ post }) {
             layout="fill"
           />
         </Box>
+      </Container>
 
-        <Heading as="h1" mb={2}>
-          {entry.title[0].text.content}
-        </Heading>
-
-        <Box mb={6}>
-          <PostTags tags={type.multi_select} size="sm" />
-        </Box>
-
+      <Container maxW="container.md" px={[null, 6, 16]} pb={16}>
         <Blocks blocks={blocks} />
       </Container>
     </MainLayout>
