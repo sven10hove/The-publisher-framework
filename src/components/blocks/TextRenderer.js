@@ -33,7 +33,7 @@ const TextRenderer = ({ text }) => {
       fontFamily: code ? 'monospace' : '',
       fontStyle: italic ? 'italic' : 'unset',
       textDecoration: resolveTextDecoration(),
-      color: color === 'default' ? 'text' : color,
+      color: color === 'default' ? '' : color,
     };
 
     if (text.link) {
