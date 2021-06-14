@@ -6,15 +6,21 @@ const notion = new Client({
 
 const databaseId = process.env.NOTION_DB_ID;
 
-export const getOverview = async () => {
+export const getPosts = async () => {
   const response = await notion.databases.query({
     database_id: databaseId,
     filter: {
-      or: [
+      and: [
         {
           property: 'status',
           select: {
             equals: 'published',
+          },
+        },
+        {
+          property: 'type',
+          multi_select: {
+            does_not_contain: 'reading',
           },
         },
       ],
@@ -52,4 +58,28 @@ export const getPostById = async (postId) => {
   const blocks = await notion.blocks.children.list({ block_id: postId });
 
   return { pageInfo: post, blocks: blocks.results };
+};
+
+export const getReadings = async () => {
+  const response = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      and: [
+        {
+          property: 'status',
+          select: {
+            equals: 'published',
+          },
+        },
+        {
+          property: 'type',
+          multi_select: {
+            contains: 'reading',
+          },
+        },
+      ],
+    },
+  });
+
+  return response.results;
 };

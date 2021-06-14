@@ -1,8 +1,7 @@
 import NextLink from 'next/link';
-import { Box, Heading, Link, SimpleGrid, useColorMode } from '@chakra-ui/react';
+import { Heading, Link, SimpleGrid, useColorMode } from '@chakra-ui/react';
 
 import TextRenderer from '@/components/blocks/TextRenderer';
-import PostTags from '@/components/posts/PostTags';
 
 const PostsList = ({ posts }) => {
   const renderPosts = posts.map((r) => {

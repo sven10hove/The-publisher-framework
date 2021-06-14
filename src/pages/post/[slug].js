@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { getOverview, getPostBySlug } from '@/lib/notion';
+import { getPosts, getPostBySlug } from '@/lib/notion';
 import { Box, Container, Heading } from '@chakra-ui/react';
 
 import MainLayout from '@/layouts/MainLayout';
@@ -64,7 +64,7 @@ export default function Post({ post }) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getOverview();
+  const posts = await getPosts();
 
   const paths = posts.map((post) => ({
     params: { slug: post.properties.slug.rich_text[0].plain_text },
