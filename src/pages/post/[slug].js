@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { getPosts, getPostBySlug } from '@/lib/notion';
-import { Box, Container, Heading } from '@chakra-ui/react';
+import { AspectRatio, Box, Container, Heading } from '@chakra-ui/react';
 
 import MainLayout from '@/layouts/MainLayout';
 import Blocks from '@/components/blocks';
@@ -41,22 +41,22 @@ export default function Post({ post }) {
           {entry.title[0].text.content}
         </Heading>
 
-        <Box
-          position="relative"
-          height={[200, 300, 500]}
+        <AspectRatio
+          ratio={16 / 9}
           mb={[4, 8]}
-          borderRadius="lg"
           overflow="hidden"
+          borderRadius="lg"
         >
           <Image
             src={image.url}
             alt={entry.title[0].text.content}
             layout="fill"
+            objectFit="cover"
           />
-        </Box>
+        </AspectRatio>
       </Container>
 
-      <Container maxW="container.md" px={[null, 6, 16]} pb={16}>
+      <Container maxW="container.md" px={[5, 6, 16]} pb={16}>
         <Blocks blocks={blocks} />
       </Container>
     </MainLayout>

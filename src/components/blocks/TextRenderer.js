@@ -41,6 +41,7 @@ const TextRenderer = ({ text }) => {
         <Link
           href={text.link.url}
           target="_blank"
+          rel="noopener noreferrer"
           {...textProps}
           color="blue.400"
         >
@@ -50,7 +51,7 @@ const TextRenderer = ({ text }) => {
     }
 
     return (
-      <Text as="span" {...textProps}>
+      <Text key={index} as="span" {...textProps}>
         {text.content}
       </Text>
     );
