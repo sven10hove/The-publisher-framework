@@ -21,7 +21,7 @@ const Blocks = ({ blocks }) => {
           <Heading
             key={b.id}
             as="h1"
-            fontSize={['xl', '2xl']}
+            fontSize={['2xl', '3xl']}
             fontWeight="700"
             mt={4}
             mb={[2, 4]}
@@ -34,7 +34,7 @@ const Blocks = ({ blocks }) => {
           <Heading
             key={b.id}
             as="h2"
-            fontSize={['lg', 'xl']}
+            fontSize={['xl', '2xl']}
             fontWeight="700"
             mt={[12, 14]}
             mb={[2, 4]}
@@ -47,10 +47,10 @@ const Blocks = ({ blocks }) => {
           <Heading
             key={b.id}
             as="h3"
-            fontSize="md"
+            fontSize={['md', 'lg']}
             fontWeight="700"
             mt={[8, 12]}
-            mb={[4, 2]}
+            mb={4}
           >
             {b.heading_3.text[0].text.content}
           </Heading>
