@@ -1,15 +1,14 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { getPosts, getPostBySlug } from '@/lib/notion';
-import { AspectRatio, Box, Container, Heading } from '@chakra-ui/react';
+import { AspectRatio, Container, Heading } from '@chakra-ui/react';
 
 import MainLayout from '@/layouts/MainLayout';
 import Blocks from '@/components/blocks';
 
 export default function Post({ post }) {
   const { pageInfo, blocks } = post;
-  const { entry, slug, summary, image, type, social_image } =
-    pageInfo.properties;
+  const { entry, slug, summary, image, social_image } = pageInfo.properties;
 
   return (
     <MainLayout>
