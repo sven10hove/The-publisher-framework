@@ -12,7 +12,13 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    Fathom.load(process.env.FATHOM_CODE, {
+    const fathomCode = process.env.FATHOM_CODE;
+
+    if (!fathomCode || fathomCode === '') {
+      return;
+    }
+
+    Fathom.load(fathomCode, {
       includedDomains: ['twan.dev'],
     });
 
