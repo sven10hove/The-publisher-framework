@@ -8,7 +8,6 @@ const TextRenderer = ({ text }) => {
   }
 
   const resolveTextColor = (color, code) => {
-    console.log(color, code);
     if (code) {
       return colorMode === 'dark' ? '#68D391' : '#C53030';
     }
