@@ -34,7 +34,7 @@ export default function Post({ post }) {
         <Heading
           as="h1"
           mb={[4, 8, 16]}
-          fontSize={['4xl', '5xl']}
+          fontSize={['2xl', '4xl', '5xl']}
           px={[null, null, 16]}
         >
           {entry.title[0].text.content}

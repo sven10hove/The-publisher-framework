@@ -18,19 +18,40 @@ const Blocks = ({ blocks }) => {
         );
       case 'heading_1':
         return (
-          <Heading key={b.id} as="h1" fontWeight="700" mb={[2, 4]}>
+          <Heading
+            key={b.id}
+            as="h1"
+            fontSize={['xl', '2xl']}
+            fontWeight="700"
+            mt={4}
+            mb={[2, 4]}
+          >
             {b.heading_1.text[0].text.content}
           </Heading>
         );
       case 'heading_2':
         return (
-          <Heading key={b.id} as="h2" fontWeight="700" mb={[2, 4]}>
+          <Heading
+            key={b.id}
+            as="h2"
+            fontSize={['lg', 'xl']}
+            fontWeight="700"
+            mt={[12, 14]}
+            mb={[2, 4]}
+          >
             {b.heading_2.text[0].text.content}
           </Heading>
         );
       case 'heading_3':
         return (
-          <Heading key={b.id} as="h3" fontWeight="700" mb={[2, 4]}>
+          <Heading
+            key={b.id}
+            as="h3"
+            fontSize="md"
+            fontWeight="700"
+            mt={[8, 12]}
+            mb={[4, 2]}
+          >
             {b.heading_3.text[0].text.content}
           </Heading>
         );
