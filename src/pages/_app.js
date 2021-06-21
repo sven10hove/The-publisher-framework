@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    Fathom.load('TBSAIDMS', {
+    Fathom.load(process.env.FATHOM_CODE, {
       includedDomains: ['twan.dev'],
     });
 
