@@ -10,7 +10,7 @@ export default function Home({ posts, readings }) {
   return (
     <MainLayout>
       <Head>
-        <title>Sven</title>
+        <title>Sven th</title>
         <meta
           name="description"
           content="Twan Kruiswijk personal blog about life, music, code and more."
