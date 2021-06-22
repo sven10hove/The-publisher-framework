@@ -9,7 +9,7 @@ const TextRenderer = ({ text }) => {
 
   const resolveTextColor = (color, code) => {
     if (code) {
-      return colorMode === 'dark' ? '#68D391' : '#C53030';
+      return colorMode === 'dark' ? 'gray.900' : 'red.500';
     }
 
     if (color !== 'default') {
@@ -48,6 +48,10 @@ const TextRenderer = ({ text }) => {
       fontStyle: italic ? 'italic' : 'unset',
       textDecoration: resolveTextDecoration(),
       color: resolveTextColor(color, code),
+      bg: code ? 'gray.200' : '',
+      borderRadius: code ? 'base' : '',
+      py: code ? '3px' : '',
+      px: code ? '6px' : '',
     };
 
     if (text.link) {
