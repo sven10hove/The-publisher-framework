@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { getPosts, getReadings } from '@/lib/notion';
 import { Box, Container, Heading } from '@chakra-ui/react';
+import { name, description, url, socialImage } from '@/lib/config';
 
 import MainLayout from '@/layouts/MainLayout';
 import PostsList from '@/components/posts/PostsList';
@@ -10,17 +11,12 @@ export default function Home({ posts, readings }) {
   return (
     <MainLayout>
       <Head>
-        <title>Sven</title>
-        <meta
-          name="description"
-          content="thoughts ideas and what not"
-        />
-        <meta property="og:title" content="Sven" />
-        <meta
-          property="og:description"
-          content="thoughts ideas and what not"
-        />
-        <meta property="og:url" content="https://sventenhove.nl" />
+        <title>{name}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={name} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={url} />
+        <meta property="og:image" content={socialImage} />
       </Head>
 
       <Container maxW="container.lg" pb={16}>

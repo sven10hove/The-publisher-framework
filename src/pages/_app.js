@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import * as Fathom from 'fathom-client';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from '@/theme';
+import { domain } from '@/lib/config';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -19,7 +20,7 @@ function MyApp({ Component, pageProps }) {
     }
 
     Fathom.load(fathomCode, {
-      includedDomains: ['twan.dev'],
+      includedDomains: [domain],
     });
 
     function onRouteChangeComplete() {
