@@ -18,6 +18,12 @@ export const getPosts = async () => {
           },
         },
         {
+          property: 'slug',
+          rich_text: {
+            is_not_empty: true,
+          },
+        },
+        {
           property: 'type',
           multi_select: {
             does_not_contain: 'reading',

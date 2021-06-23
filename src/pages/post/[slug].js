@@ -15,6 +15,28 @@ export default function Post({ post }) {
   const summaryContent = summary.rich_text[0].text.content;
   const slugContent = slug.rich_text[0].plain_text;
 
+  const renderFeaturedImage = () => {
+    if (!image) {
+      return null;
+    }
+
+    return (
+      <AspectRatio
+        ratio={16 / 9}
+        mb={[4, 8]}
+        overflow="hidden"
+        borderRadius="lg"
+      >
+        <Image
+          src={image.url}
+          alt={titleContent}
+          layout="fill"
+          objectFit="cover"
+        />
+      </AspectRatio>
+    );
+  };
+
   return (
     <MainLayout>
       <Head>
@@ -41,19 +63,7 @@ export default function Post({ post }) {
           {titleContent}
         </Heading>
 
-        <AspectRatio
-          ratio={16 / 9}
-          mb={[4, 8]}
-          overflow="hidden"
-          borderRadius="lg"
-        >
-          <Image
-            src={image.url}
-            alt={titleContent}
-            layout="fill"
-            objectFit="cover"
-          />
-        </AspectRatio>
+        {renderFeaturedImage}
       </Container>
 
       <Container maxW="container.md" px={[5, 6, 16]} pb={16}>
@@ -76,5 +86,5 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const post = await getPostBySlug(params.slug);
 
-  return { props: { post }, revalidate: 10 };
+  return { props: { post }, revalidate: 60 };
 }
