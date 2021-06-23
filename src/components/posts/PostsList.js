@@ -4,6 +4,14 @@ import { Heading, Link, SimpleGrid, useColorMode } from '@chakra-ui/react';
 import TextRenderer from '@/components/blocks/TextRenderer';
 
 const PostsList = ({ posts }) => {
+  if (!posts.length) {
+    return (
+      <SimpleGrid columns={[1, null, 2]} spacing={8}>
+        <p>No posts have been found...</p>
+      </SimpleGrid>
+    )
+  }
+
   const renderPosts = posts.map((r) => {
     const { slug, entry, summary, type } = r.properties;
 
