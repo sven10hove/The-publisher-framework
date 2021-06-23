@@ -1,9 +1,22 @@
 import NextLink from 'next/link';
-import { Heading, Flex, Link, SimpleGrid, useColorMode } from '@chakra-ui/react';
-import { ChevronRightIcon } from '@chakra-ui/icons'
-
+import {
+  Heading,
+  Flex,
+  Link,
+  SimpleGrid,
+  useColorMode,
+} from '@chakra-ui/react';
+import { ChevronRightIcon } from '@chakra-ui/icons';
 
 const ReadingsList = ({ readings }) => {
+  if (!readings.length) {
+    return (
+      <SimpleGrid columns={[1, null, 2]} spacing={8}>
+        <p>No readings have been found...</p>
+      </SimpleGrid>
+    );
+  }
+
   const renderReadings = readings.map((r) => {
     const { entry, URL } = r.properties;
 
@@ -37,10 +50,10 @@ const PostItem = ({ title, url }) => {
         _hover={{ textDecoration: 'none', boxShadow: '5px 5px 0 #EB5753' }}
       >
         <Flex justify="space-between" align="center">
-            <Heading as="h2" fontSize="base">
+          <Heading as="h2" fontSize="base">
             {title}
-            </Heading>
-            <ChevronRightIcon w={30} h={25}/>
+          </Heading>
+          <ChevronRightIcon w={30} h={25} />
         </Flex>
       </Link>
     </NextLink>
