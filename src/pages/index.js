@@ -10,15 +10,15 @@ export default function Home({ posts, readings }) {
   return (
     <MainLayout>
       <Head>
-        <title>Sven th</title>
+        <title>Sven</title>
         <meta
           name="description"
-          content="Twan Kruiswijk personal blog about life, music, code and more."
+          content="thoughts ideas and what not"
         />
-        <meta property="og:title" content="twan.dev" />
+        <meta property="og:title" content="Sven" />
         <meta
           property="og:description"
-          content="Twan Kruiswijk personal blog about life, music, code and more."
+          content="thoughts ideas and what not"
         />
         <meta property="og:url" content="https://twan.dev" />
       </Head>
