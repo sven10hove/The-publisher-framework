@@ -63,7 +63,7 @@ export default function Post({ post }) {
           {titleContent}
         </Heading>
 
-        {renderFeaturedImage}
+        {renderFeaturedImage()}
       </Container>
 
       <Container maxW="container.md" px={[5, 6, 16]} pb={16}>
