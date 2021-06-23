@@ -33,7 +33,7 @@ const Navigation = () => {
               fontWeight={600}
               _hover={{ underline: 'none' }}
             >
-              twan.dev
+              Sven
             </Link>
           </NextLink>
           <List>

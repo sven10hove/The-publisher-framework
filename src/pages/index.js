@@ -20,7 +20,7 @@ export default function Home({ posts, readings }) {
           property="og:description"
           content="thoughts ideas and what not"
         />
-        <meta property="og:url" content="https://twan.dev" />
+        <meta property="og:url" content="https://sventenhove.nl" />
       </Head>
 
       <Container maxW="container.lg" pb={16}>
@@ -33,7 +33,7 @@ export default function Home({ posts, readings }) {
 
         <Box>
           <Heading as="h2" fontSize="xl" px={[4, 8]} mb={6}>
-            What I’m reading / watching
+            What I’m reading
           </Heading>
           <ReadingsList readings={readings} />
         </Box>
