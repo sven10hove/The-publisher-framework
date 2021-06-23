@@ -10,6 +10,7 @@ import {
   IconButton,
 } from '@chakra-ui/react';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
+import { name } from '@/lib/config';
 
 const Navigation = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -33,7 +34,7 @@ const Navigation = () => {
               fontWeight={600}
               _hover={{ underline: 'none' }}
             >
-              twan.dev
+              {name}
             </Link>
           </NextLink>
           <List>

@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { getPosts, getPostBySlug } from '@/lib/notion';
 import { AspectRatio, Container, Heading } from '@chakra-ui/react';
+import { socialImage, url } from '@/lib/config';
 
 import MainLayout from '@/layouts/MainLayout';
 import Blocks from '@/components/blocks';
@@ -10,23 +11,23 @@ export default function Post({ post }) {
   const { pageInfo, blocks } = post;
   const { entry, slug, summary, image, social_image } = pageInfo.properties;
 
+  const titleContent = entry.title[0].text.content;
+  const summaryContent = summary.rich_text[0].text.content;
+  const slugContent = slug.rich_text[0].plain_text;
+
   return (
     <MainLayout>
       <Head>
-        <title>twan.dev - {entry.title[0].text.content}</title>
-        <meta name="description" content={summary.rich_text[0].text.content} />
-        <meta property="og:title" content="twan.dev" />
-        <meta
-          property="og:description"
-          content={summary.rich_text[0].text.content}
-        />
-        <meta
-          property="og:url"
-          content={`https://twan.dev/${slug.rich_text[0].plain_text}`}
-        />
+        <title>{titleContent}</title>
+        <meta name="description" content={summaryContent} />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={titleContent} />
+        <meta property="og:description" content={summaryContent} />
+        <meta property="og:url" content={`${url}/${slugContent}`} />
         <meta
           property="og:image"
-          content={social_image ? social_image.url : image.url}
+          content={social_image ? social_image.url : socialImage}
         />
       </Head>
 
@@ -37,7 +38,7 @@ export default function Post({ post }) {
           fontSize={['2xl', '4xl', '5xl']}
           px={[null, null, 16]}
         >
-          {entry.title[0].text.content}
+          {titleContent}
         </Heading>
 
         <AspectRatio
@@ -48,7 +49,7 @@ export default function Post({ post }) {
         >
           <Image
             src={image.url}
-            alt={entry.title[0].text.content}
+            alt={titleContent}
             layout="fill"
             objectFit="cover"
           />
