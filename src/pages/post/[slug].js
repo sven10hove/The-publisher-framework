@@ -86,5 +86,12 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const post = await getPostBySlug(params.slug);
 
+  if (post?.pageInfo?.properties.status.select.name !== 'published') {
+    return {
+      notFound: true,
+      revalidate: 60,
+    };
+  }
+
   return { props: { post }, revalidate: 60 };
 }
