@@ -11,8 +11,12 @@ const theme = extendTheme({
     primaryLight: '#DADADA',
   },
   fonts: {
-    heading: '"Mont", sans-serif',
+    heading: 'montsemibold';
+    src: url('fontfabric_-_mont_semibold-webfont.woff2') format('woff2'),
+         url('fontfabric_-_mont_semibold-webfont.woff') format('woff');, 'sans-serif',
     body: '"Noto Serif", serif',
+
+
   },
   styles: {
     global: (props) => ({
