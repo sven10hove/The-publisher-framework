@@ -11,7 +11,7 @@ const theme = extendTheme({
     primaryLight: '#DADADA',
   },
   fonts: {
-    heading: '"Montserrat", sans-serif',
+    heading: '"Mont", sans-serif',
     body: '"Noto Serif", serif',
   },
   styles: {
