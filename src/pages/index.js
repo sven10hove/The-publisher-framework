@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import NextLink from 'next/link';
 import { getPosts, getReadings } from '@/lib/notion';
-import { Box, Container, Flex, Heading, Link } from '@chakra-ui/react';
+import { Button, Box, Container, Flex, Heading } from '@chakra-ui/react';
 import { name, description, url, socialImage } from '@/lib/config';
+import { ChevronRightIcon } from '@chakra-ui/icons';
 
 import MainLayout from '@/layouts/MainLayout';
 import PostsList from '@/components/posts/PostsList';
@@ -21,23 +22,23 @@ export default function Home({ posts, readings }) {
       </Head>
 
       <Container maxW="container.lg" pb={16}>
-        <Box mb={[8, 16]}>
+        <Box mb={[12, 16]}>
           <Flex align="center" justify="space-between" px={[4, 8]} mb={6}>
             <Heading as="h2" fontSize="xl">
               my thoughts
             </Heading>
+          </Flex>
 
+          <PostsList posts={posts} />
+
+          <Flex justify="flex-end" mt={8}>
             <NextLink href={`/archive/posts`} passHref>
-              <Link
-                fontFamily="heading"
-                fontWeight="600"
-                _hover={{ textDecoration: 'none' }}
-              >
+              <Button as="a" w={["100%", "100%", "unset"]} rightIcon={<ChevronRightIcon />} bg="#D04E4A" size="lg" fontFamily="heading" _active={{backgroundColor: '#bb3531'}} _hover={{boxShadow: '2px 2px 0 #880400'}}>
                 All posts
-              </Link>
+              </Button>
             </NextLink>
           </Flex>
-          <PostsList posts={posts} />
+
         </Box>
 
         <Box>
