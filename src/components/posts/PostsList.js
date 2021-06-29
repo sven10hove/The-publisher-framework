@@ -54,15 +54,16 @@ const PostsList = ({ posts, error, isLoadingMore, loadMore, reachedEnd }) => {
       {loadMore && !reachedEnd && (
         <Button
           onClick={loadMore}
-          mt={[4, 8]}
-          size="md"
-          fontFamily="heading"
-          isLoading={isLoadingMore}
-          loadingText="Loading..."
+          disabled={isLoadingMore}
           colorScheme={colorMode === 'dark' ? 'gray' : 'black'}
           variant={colorMode === 'dark' ? 'solid' : 'outline'}
+          w="100%"
+          mt={[4, 8]}
+          size="lg"
+          fontFamily="heading"
+          _hover={{ boxShadow: isLoadingMore ? 'unset' : '4px 4px 0 #EB5753' }}
         >
-          Load more
+          {isLoadingMore ? 'Loading...' : 'Load more'}
         </Button>
       )}
     </>
@@ -98,8 +99,8 @@ const PostItem = ({ slug, title, tags, summary }) => {
 const PostSkeleton = () => {
   const { colorMode } = useColorMode();
 
-  const startColor = colorMode === 'dark' ? 'gray.100' : 'gray.600';
-  const endColor = colorMode === 'dark' ? 'gray.400' : 'gray.900';
+  const startColor = colorMode === 'dark' ? 'white' : 'gray.400';
+  const endColor = colorMode === 'dark' ? 'gray.500' : 'gray.900';
 
   return (
     <Box
