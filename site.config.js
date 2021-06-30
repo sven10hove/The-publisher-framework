@@ -16,7 +16,6 @@ module.exports = {
     - As of now it's not possible to alter the icons (we might add this in a later version), 
       so please keep the icon value as is.
   */
-
   socials: [
     {
       name: 'Facebook',
@@ -59,4 +58,13 @@ module.exports = {
       icon: 'SiTwitch',
     },
   ],
+
+  /* 
+    Currently, it's not possible to fetch the images from the notion API.
+    So until then, you can make use of the postImageSource.
+
+    If you add this url as a link to your post, it will always get rendered as an image.
+  */
+
+  postImageSource: ['dl.dropboxusercontent.com'],
 };

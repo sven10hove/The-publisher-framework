@@ -21,3 +21,5 @@ export const description = getSiteConfig('description');
 export const socialImage = getSiteConfig('defaultSocialImage');
 
 export const socials = getSiteConfig('socials');
+
+export const postImageSource = getSiteConfig('postImageSource');

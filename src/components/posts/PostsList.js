@@ -90,7 +90,7 @@ const PostItem = ({ slug, title, tags, summary }) => {
           {title}
         </Heading>
 
-        <TextRenderer text={summary} />
+        <TextRenderer content={summary} />
       </Link>
     </NextLink>
   );
