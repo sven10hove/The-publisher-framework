@@ -19,6 +19,10 @@ const theme = extendTheme({
       'html, body': {
         backgroundColor: props.colorMode === 'dark' ? 'primaryDark' : 'gray.50',
         color: props.colorMode === 'dark' ? 'primaryLight' : 'primaryDark',
+        minHeight: '100vh',
+      },
+      body: {
+        paddingBottom: '3rem',
       },
     }),
   },

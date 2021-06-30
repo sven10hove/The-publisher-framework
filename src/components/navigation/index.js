@@ -39,14 +39,21 @@ const Navigation = () => {
           </NextLink>
           <List>
             {renderLinks}
-            <IconButton
-              variant="ghost"
-              colorScheme="gray"
-              aria-label="change color mode"
-              size="lg"
-              icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
-              onClick={toggleColorMode}
-            />
+            <ListItem role="listitem">
+              <IconButton
+                role="button"
+                variant="ghost"
+                colorScheme="gray"
+                aria-label={
+                  colorMode === 'dark'
+                    ? 'Switch to dark mode'
+                    : 'Switch to light mode'
+                }
+                size="lg"
+                icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+                onClick={toggleColorMode}
+              />
+            </ListItem>
           </List>
         </Flex>
       </Container>

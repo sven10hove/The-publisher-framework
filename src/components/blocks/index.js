@@ -1,5 +1,5 @@
 import TextRenderer from '@/components/blocks/TextRenderer';
-import { Heading, Text } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 
 const Blocks = ({ blocks }) => {
   if (!blocks) {
@@ -11,11 +11,7 @@ const Blocks = ({ blocks }) => {
   const renderBlocks = supportedBlocks.map((b) => {
     switch (b.type) {
       case 'paragraph':
-        return (
-          <Text key={b.id} mb={8}>
-            <TextRenderer text={b.paragraph.text} />
-          </Text>
-        );
+        return <TextRenderer key={b.id} content={b.paragraph.text} />;
       case 'heading_1':
         return (
           <Heading
@@ -23,7 +19,7 @@ const Blocks = ({ blocks }) => {
             as="h1"
             fontSize={['2xl', '3xl']}
             fontWeight="700"
-            mt={4}
+            mt={[8, 12]}
             mb={[2, 4]}
           >
             {b.heading_1.text[0].text.content}
@@ -36,7 +32,7 @@ const Blocks = ({ blocks }) => {
             as="h2"
             fontSize={['xl', '2xl']}
             fontWeight="700"
-            mt={[12, 14]}
+            mt={[8, 12]}
             mb={[2, 4]}
           >
             {b.heading_2.text[0].text.content}
@@ -49,7 +45,7 @@ const Blocks = ({ blocks }) => {
             as="h3"
             fontSize={['md', 'lg']}
             fontWeight="700"
-            mt={[8, 12]}
+            mt={[6, 8]}
             mb={4}
           >
             {b.heading_3.text[0].text.content}
@@ -58,13 +54,13 @@ const Blocks = ({ blocks }) => {
       case 'bulleted_list_item':
         return (
           <li key={b.id}>
-            <TextRenderer text={b.bulleted_list_item.text} />
+            <TextRenderer content={b.bulleted_list_item.text} plain />
           </li>
         );
       case 'numbered_list_item':
         return (
           <li key={b.id}>
-            <TextRenderer text={b.numbered_list_item.text} />
+            <TextRenderer content={b.numbered_list_item.text} plain />
           </li>
         );
       default:
