@@ -1,4 +1,5 @@
 import Navigation from '@/components/navigation';
+import Footer from '@/components/footer';
 
 const MainLayout = ({ children }) => {
   return (
@@ -6,6 +7,8 @@ const MainLayout = ({ children }) => {
       <Navigation />
 
       {children}
+
+      <Footer />
     </>
   );
 };
