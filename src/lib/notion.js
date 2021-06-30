@@ -6,9 +6,11 @@ const notion = new Client({
 
 const databaseId = process.env.NOTION_DB_ID;
 
-export const getPosts = async () => {
+export const getPosts = async (cursor) => {
   const response = await notion.databases.query({
     database_id: databaseId,
+    page_size: 6,
+    start_cursor: cursor ? cursor : undefined,
     filter: {
       and: [
         {
@@ -33,7 +35,11 @@ export const getPosts = async () => {
     },
   });
 
-  return response.results;
+  return {
+    data: response.results,
+    next_cursor: response.next_cursor,
+    has_more: response.has_more,
+  };
 };
 
 export const getPostBySlug = async (slug) => {
@@ -87,5 +93,9 @@ export const getReadings = async () => {
     },
   });
 
-  return response.results;
+  return {
+    data: response.results,
+    next_cursor: response.next_cursor,
+    has_more: response.has_more,
+  };
 };

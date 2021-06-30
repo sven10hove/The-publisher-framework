@@ -1,7 +1,9 @@
 import Head from 'next/head';
+import NextLink from 'next/link';
 import { getPosts, getReadings } from '@/lib/notion';
-import { Box, Container, Heading } from '@chakra-ui/react';
+import { Button, Box, Container, Flex, Heading } from '@chakra-ui/react';
 import { name, description, url, socialImage } from '@/lib/config';
+import { ChevronRightIcon } from '@chakra-ui/icons';
 
 import MainLayout from '@/layouts/MainLayout';
 import PostsList from '@/components/posts/PostsList';
@@ -20,11 +22,23 @@ export default function Home({ posts, readings }) {
       </Head>
 
       <Container maxW="container.lg" pb={16}>
-        <Box mb={[8, 16]}>
-          <Heading as="h2" fontSize="xl" px={[4, 8]} mb={6}>
-            my thoughts
-          </Heading>
+        <Box mb={[12, 16]}>
+          <Flex align="center" justify="space-between" px={[4, 8]} mb={6}>
+            <Heading as="h2" fontSize="xl">
+              my thoughts
+            </Heading>
+          </Flex>
+
           <PostsList posts={posts} />
+
+          <Flex justify="flex-end" mt={8}>
+            <NextLink href={`/archive/posts`} passHref>
+              <Button as="a" w={["100%", "100%", "unset"]} rightIcon={<ChevronRightIcon />} bg="#D04E4A" size="lg" fontFamily="heading" _active={{backgroundColor: '#bb3531'}} _hover={{boxShadow: '2px 2px 0 #880400'}}>
+                All posts
+              </Button>
+            </NextLink>
+          </Flex>
+
         </Box>
 
         <Box>
@@ -38,7 +52,7 @@ export default function Home({ posts, readings }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const posts = await getPosts();
   const readings = await getReadings();
 
@@ -49,7 +63,7 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { posts: posts, readings: readings },
+    props: { posts: posts.data, readings: readings.data },
     revalidate: 10,
   };
 }

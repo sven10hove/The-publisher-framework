@@ -76,7 +76,7 @@ export default function Post({ post }) {
 export async function getStaticPaths() {
   const posts = await getPosts();
 
-  const paths = posts.map((post) => ({
+  const paths = posts.data.map((post) => ({
     params: { slug: post.properties.slug.rich_text[0].plain_text },
   }));
 
