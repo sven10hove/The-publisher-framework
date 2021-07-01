@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/sven10hove/',
+      url: '',
       icon: 'SiInstagram',
     },
     {
