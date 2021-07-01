@@ -12,6 +12,8 @@ npm run dev
 yarn dev
 ```
 
+Second, update the values inside of the `site.config.js` file to customize your blog.
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Image support
