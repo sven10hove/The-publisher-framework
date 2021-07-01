@@ -19,3 +19,27 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Image support
 
 The official Notion API doesn't support images yet, and this is why we coded our own solution. You can alter the `postImageSource` to include the domains you want to use for inline images.
+
+### How to work with the image support?
+
+1. Paste the URL of the image as a separate line inside of your Notion document.
+2. For example, if we have the following URL `https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80`, make sure that you add the `images.unsplash.com` domain to the `site.config.js` `postImageSource` like `['images.unsplash.com']`.
+
+```js
+...
+/*
+Currently, it's not possible to fetch the images from the notion API.
+So until then, you can make use of the postImageSource.
+
+If you add this url as a link to your post, it will always get rendered as an image.
+*/
+postImageSource: [
+    'res.cloudinary.com',
+    'dl.dropboxusercontent.com',
+    // add the domain here
+    'images.unsplash.com',
+],
+
+```
+
+Now all URLs that match the domains inside of `postImageSource` will get rendered as an image.
