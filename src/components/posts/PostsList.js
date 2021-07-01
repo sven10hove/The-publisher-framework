@@ -31,7 +31,6 @@ const PostsList = ({ posts, error, isLoadingMore, loadMore, reachedEnd }) => {
           key={r.id}
           slug={slug.rich_text[0]}
           title={entry.title[0].text.content}
-          tags={type.multi_select}
           summary={summary.rich_text}
         />
       );
@@ -72,7 +71,7 @@ const PostsList = ({ posts, error, isLoadingMore, loadMore, reachedEnd }) => {
 
 export default PostsList;
 
-const PostItem = ({ slug, title, tags, summary }) => {
+const PostItem = ({ slug, title, summary }) => {
   const { colorMode } = useColorMode();
 
   return (

@@ -89,9 +89,9 @@ export async function getStaticProps({ params }) {
   if (post?.pageInfo?.properties.status.select.name !== 'published') {
     return {
       notFound: true,
-      revalidate: 60,
+      revalidate: 30,
     };
   }
 
-  return { props: { post }, revalidate: 60 };
+  return { props: { post }, revalidate: 30 };
 }

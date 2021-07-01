@@ -65,7 +65,7 @@ const TextRenderer = ({ content, plain }) => {
       if (postImageSource.some((u) => text.link.url.includes(u))) {
         return (
           <Box mx={[null, null, '-60px']}>
-            <Image src={text.link.url} alt="image" />
+            <Image src={text.link.url} alt="image" ignoreFallback />
           </Box>
         );
       }
