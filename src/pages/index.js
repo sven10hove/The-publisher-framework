@@ -29,23 +29,51 @@ export default function Home({ posts, readings }) {
             </Heading>
           </Flex>
 
-          <PostsList posts={posts} />
+          <PostsList posts={posts.slice(0, 6)} />
 
           <Flex justify="flex-end" mt={8}>
-            <NextLink href={`/archive/posts`} passHref>
-              <Button as="a" w={["100%", "100%", "unset"]} rightIcon={<ChevronRightIcon />} bg="#D04E4A" size="lg" fontFamily="heading" _active={{backgroundColor: '#bb3531'}} _hover={{boxShadow: '2px 2px 0 #880400'}}>
+            <NextLink href="/archive/posts" passHref>
+              <Button
+                as="a"
+                w={['100%', '100%', 'unset']}
+                rightIcon={<ChevronRightIcon />}
+                bg="#D04E4A"
+                color="white"
+                size="lg"
+                fontFamily="heading"
+                _active={{ backgroundColor: '#bb3531' }}
+                _hover={{ boxShadow: '2px 2px 0 #880400' }}
+              >
                 All posts
               </Button>
             </NextLink>
           </Flex>
-
         </Box>
 
         <Box>
           <Heading as="h2" fontSize="xl" px={[4, 8]} mb={6}>
             What I’m reading
           </Heading>
-          <ReadingsList readings={readings} />
+
+          <ReadingsList readings={readings.slice(0, 6)} />
+
+          <Flex justify="flex-end" mt={8}>
+            <NextLink href="/archive/readings" passHref>
+              <Button
+                as="a"
+                w={['100%', '100%', 'unset']}
+                rightIcon={<ChevronRightIcon />}
+                bg="#D04E4A"
+                color="white"
+                size="lg"
+                fontFamily="heading"
+                _active={{ backgroundColor: '#bb3531' }}
+                _hover={{ boxShadow: '2px 2px 0 #880400' }}
+              >
+                View all
+              </Button>
+            </NextLink>
+          </Flex>
         </Box>
       </Container>
     </MainLayout>

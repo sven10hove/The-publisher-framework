@@ -1,5 +1,6 @@
 import NextLink from 'next/link';
 import {
+  Button,
   Heading,
   Flex,
   Link,
@@ -8,27 +9,68 @@ import {
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 
-const ReadingsList = ({ readings }) => {
-  if (!readings.length) {
-    return (
-      <SimpleGrid columns={[1, null, 2]} spacing={8}>
-        <p>No readings have been found...</p>
-      </SimpleGrid>
-    );
-  }
+import ListSkeleton from '@/components/skeleton/ListSkeleton';
 
-  const renderReadings = readings.map((r) => {
-    const { entry, URL } = r.properties;
+const ReadingsList = ({
+  readings,
+  error,
+  isLoadingMore,
+  loadMore,
+  reachedEnd,
+}) => {
+  const { colorMode } = useColorMode();
 
-    return (
-      <PostItem key={r.id} title={entry.title[0].text.content} url={URL.url} />
-    );
-  });
+  const renderReadings = () => {
+    if (error) {
+      return <p>There was an error while fetching the readings...</p>;
+    }
+
+    if (!readings) {
+      return <p>It&apos;s looking a bit empty here...</p>;
+    }
+
+    return readings.map((r) => {
+      const { entry, URL } = r.properties;
+
+      return (
+        <PostItem
+          key={r.id}
+          title={entry.title[0].text.content}
+          url={URL.url}
+        />
+      );
+    });
+  };
 
   return (
-    <SimpleGrid columns={[1, null, 2]} spacing={4}>
-      {renderReadings}
-    </SimpleGrid>
+    <>
+      <SimpleGrid columns={[1, null, 2]} spacing={4}>
+        {renderReadings()}
+
+        {isLoadingMore && (
+          <>
+            <ListSkeleton />
+            <ListSkeleton />
+          </>
+        )}
+      </SimpleGrid>
+
+      {loadMore && !reachedEnd && (
+        <Button
+          onClick={loadMore}
+          disabled={isLoadingMore}
+          colorScheme={colorMode === 'dark' ? 'gray' : 'black'}
+          variant={colorMode === 'dark' ? 'solid' : 'outline'}
+          w="100%"
+          mt={[4, 8]}
+          size="lg"
+          fontFamily="heading"
+          _hover={{ boxShadow: isLoadingMore ? 'unset' : '4px 4px 0 #EB5753' }}
+        >
+          {isLoadingMore ? 'Loading...' : 'Load more'}
+        </Button>
+      )}
+    </>
   );
 };
 

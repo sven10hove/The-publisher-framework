@@ -9,7 +9,7 @@ const databaseId = process.env.NOTION_DB_ID;
 export const getPosts = async (cursor) => {
   const response = await notion.databases.query({
     database_id: databaseId,
-    page_size: 6,
+    page_size: 10,
     start_cursor: cursor ? cursor : undefined,
     filter: {
       and: [
@@ -72,9 +72,11 @@ export const getPostById = async (postId) => {
   return { pageInfo: post, blocks: blocks.results };
 };
 
-export const getReadings = async () => {
+export const getReadings = async (cursor) => {
   const response = await notion.databases.query({
     database_id: databaseId,
+    page_size: 10,
+    start_cursor: cursor ? cursor : undefined,
     filter: {
       and: [
         {

@@ -64,6 +64,9 @@ module.exports = {
 
     If you add this url as a link to your post, it will always get rendered as an image.
   */
-
-  postImageSource: ['dl.dropboxusercontent.com'],
+  postImageSource: [
+    'images.unsplash.com',
+    'res.cloudinary.com',
+    'dl.dropboxusercontent.com',
+  ],
 };

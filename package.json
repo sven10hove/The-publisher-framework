@@ -1,6 +1,19 @@
 {
-  "name": "lts",
-  "version": "0.1.0",
+  "name": "blion",
+  "version": "1.0.0",
+  "description": "Blion is a NextJS application to use as a template to run a blog with Notion as your CMS",
+  "keywords": ["nextjs", "notion", "template", "blog"],
+  "bugs": {
+    "url" : "https://github.com/twankruiswijk/Blion/issues"
+  },
+  "author": {
+    "name": "Twan Kruiswijk",
+    "url": "https://twan.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twankruiswijk/Blion"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
