@@ -1,15 +1,14 @@
 import NextLink from 'next/link';
 import {
   Button,
-  Box,
   Heading,
   Link,
   SimpleGrid,
   useColorMode,
-  SkeletonText,
 } from '@chakra-ui/react';
 
 import TextRenderer from '@/components/blocks/TextRenderer';
+import ListSkeleton from '@/components/skeleton/ListSkeleton';
 
 const PostsList = ({ posts, error, isLoadingMore, loadMore, reachedEnd }) => {
   const { colorMode } = useColorMode();
@@ -24,7 +23,7 @@ const PostsList = ({ posts, error, isLoadingMore, loadMore, reachedEnd }) => {
     }
 
     return posts.map((r) => {
-      const { slug, entry, summary, type } = r.properties;
+      const { slug, entry, summary } = r.properties;
 
       return (
         <PostItem
@@ -44,8 +43,8 @@ const PostsList = ({ posts, error, isLoadingMore, loadMore, reachedEnd }) => {
 
         {isLoadingMore && (
           <>
-            <PostSkeleton />
-            <PostSkeleton />
+            <ListSkeleton type="posts" />
+            <ListSkeleton type="posts" />
           </>
         )}
       </SimpleGrid>
@@ -92,41 +91,5 @@ const PostItem = ({ slug, title, summary }) => {
         <TextRenderer content={summary} />
       </Link>
     </NextLink>
-  );
-};
-
-const PostSkeleton = () => {
-  const { colorMode } = useColorMode();
-
-  const startColor = colorMode === 'dark' ? 'white' : 'gray.400';
-  const endColor = colorMode === 'dark' ? 'gray.500' : 'gray.900';
-
-  return (
-    <Box
-      height="210px"
-      px={6}
-      py={8}
-      bg={colorMode === 'dark' ? 'primaryGray' : 'transparent'}
-      border="1px"
-      borderColor={colorMode === 'dark' ? 'transparent' : 'primaryDark'}
-      borderRadius="md"
-      _hover={{ textDecoration: 'none', boxShadow: '5px 5px 0 #EB5753' }}
-    >
-      <SkeletonText
-        mt="4"
-        noOfLines={1}
-        mb={[2, 4, 6]}
-        startColor={startColor}
-        endColor={endColor}
-      />
-
-      <SkeletonText
-        mt="4"
-        noOfLines={4}
-        spacing="2"
-        startColor={startColor}
-        endColor={endColor}
-      />
-    </Box>
   );
 };
