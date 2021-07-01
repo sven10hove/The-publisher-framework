@@ -4,6 +4,7 @@ module.exports = {
   domain: 'twan.dev',
   url: 'https://twan.dev',
   description: 'Twan Kruiswijk personal blog about life, music, code and more.',
+  fathomCode: 'TBSAIDMS',
 
   // SEO specific (optional)
   defaultSocialImage:

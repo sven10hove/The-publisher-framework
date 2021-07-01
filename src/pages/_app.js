@@ -7,14 +7,12 @@ import { useRouter } from 'next/router';
 import * as Fathom from 'fathom-client';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from '@/theme';
-import { domain } from '@/lib/config';
+import { domain, fathomCode } from '@/lib/config';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    const fathomCode = process.env.FATHOM_CODE;
-
     if (!fathomCode || fathomCode === '') {
       return;
     }
