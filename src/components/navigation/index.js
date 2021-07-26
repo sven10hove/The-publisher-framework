@@ -8,6 +8,7 @@ import {
   ListItem,
   useColorMode,
   IconButton,
+  HStack,
 } from '@chakra-ui/react';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 import { name } from '@/lib/config';
@@ -38,25 +39,24 @@ const Navigation = () => {
             </Link>
           </NextLink>
           <List>
-            {renderLinks}
-            <ListItem role="listitem"
-              About me 
-            ></ListItem>
-            <ListItem role="listitem">
-              <IconButton
-                role="button"
-                variant="ghost"
-                colorScheme="gray"
-                aria-label={
-                  colorMode === 'dark'
-                    ? 'Switch to dark mode'
-                    : 'Switch to light mode'
-                }
-                size="lg"
-                icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
-                onClick={toggleColorMode}
-              />
-            </ListItem>
+            <HStack>
+              {renderLinks}
+              <ListItem role="listitem">
+                <IconButton
+                  role="button"
+                  variant="ghost"
+                  colorScheme="gray"
+                  aria-label={
+                    colorMode === 'dark'
+                      ? 'Switch to dark mode'
+                      : 'Switch to light mode'
+                  }
+                  size="lg"
+                  icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+                  onClick={toggleColorMode}
+                />
+              </ListItem>
+            </HStack>
           </List>
         </Flex>
       </Container>
@@ -64,6 +64,10 @@ const Navigation = () => {
   );
 };
 
-const links = [];
-
+const links = [
+  {
+    title: 'About me',
+    url: '/about',
+  }
+]
 export default Navigation;
