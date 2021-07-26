@@ -67,7 +67,7 @@ const Navigation = () => {
 const links = [
   {
     title: 'About me',
-    url: '/about',
+    url: '/post/about',
   }
 ]
 export default Navigation;
