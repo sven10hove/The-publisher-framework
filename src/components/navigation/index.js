@@ -39,6 +39,9 @@ const Navigation = () => {
           </NextLink>
           <List>
             {renderLinks}
+            <ListItem role="listitem"
+              About me 
+            ></ListItem>
             <ListItem role="listitem">
               <IconButton
                 role="button"
