@@ -36,6 +36,8 @@ function MyApp({ Component, pageProps }) {
     <ChakraProvider theme={theme}>
       <Head>
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+
         <link rel="shortcut icon" href="/favicons/favicon.ico" />
         <link
           rel="apple-touch-icon"

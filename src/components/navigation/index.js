@@ -8,6 +8,7 @@ import {
   ListItem,
   useColorMode,
   IconButton,
+  HStack,
 } from '@chakra-ui/react';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 import { name } from '@/lib/config';
@@ -16,7 +17,7 @@ const Navigation = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const renderLinks = links.map((l) => (
-    <ListItem key={l.title} fontSize="md" fontFamily="heading">
+    <ListItem key={l.title} fontSize="md" fontFamily="heading" mr={4}>
       <NextLink href={l.url} passHref>
         <Link _hover={{ underline: 'none' }}>{l.title}</Link>
       </NextLink>
@@ -38,22 +39,24 @@ const Navigation = () => {
             </Link>
           </NextLink>
           <List>
-            {renderLinks}
-            <ListItem role="listitem">
-              <IconButton
-                role="button"
-                variant="ghost"
-                colorScheme="gray"
-                aria-label={
-                  colorMode === 'dark'
-                    ? 'Switch to dark mode'
-                    : 'Switch to light mode'
-                }
-                size="lg"
-                icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
-                onClick={toggleColorMode}
-              />
-            </ListItem>
+            <HStack>
+              {renderLinks}
+              <ListItem role="listitem">
+                <IconButton
+                  role="button"
+                  variant="ghost"
+                  colorScheme="gray"
+                  aria-label={
+                    colorMode === 'dark'
+                      ? 'Switch to dark mode'
+                      : 'Switch to light mode'
+                  }
+                  size="lg"
+                  icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+                  onClick={toggleColorMode}
+                />
+              </ListItem>
+            </HStack>
           </List>
         </Flex>
       </Container>
