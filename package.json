@@ -1,10 +1,15 @@
 {
   "name": "blion",
   "version": "1.0.0",
-  "description": "Blion is a NextJS application to use as a template to run a blog with Notion as your CMS",
-  "keywords": ["nextjs", "notion", "template", "blog"],
+  "description": "The Publisher framework is a NextJS application to use as a template to run a blog with Notion as your CMS",
+  "keywords": [
+    "nextjs",
+    "notion",
+    "template",
+    "blog"
+  ],
   "bugs": {
-    "url" : "https://github.com/twankruiswijk/Blion/issues"
+    "url": "https://github.com/twankruiswijk/The-publisher-framework/issues"
   },
   "author": {
     "name": "Twan Kruiswijk",
@@ -12,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/twankruiswijk/Blion"
+    "url": "https://github.com/twankruiswijk/The-publisher-framework"
   },
   "private": true,
   "scripts": {
@@ -30,11 +35,11 @@
     "@notionhq/client": "^0.1.8",
     "fathom-client": "^3.0.0",
     "framer-motion": "^4",
-    "next": "^11.0.0",
+    "next": "^11.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "swr": "^0.5.6",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "swr": "^0.5.6"
   },
   "devDependencies": {
     "eslint": "^7.29.0",
